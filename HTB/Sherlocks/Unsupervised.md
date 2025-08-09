@@ -136,7 +136,7 @@ From Registry we got VID and PID this unbranded USB: VID_346D&PID_5678
 
 <img width="1582" height="111" alt="image" src="https://github.com/user-attachments/assets/cdeed504-b9c1-43de-bcd6-d667b1ee6e35" />
 
-From [Internet](https://the-sz.com/products/usbid/index.php?v=0x346D) we got information that vendor of this device is - Shenzhen SanDiYiXin Electronic Co.,LTD
+From [Internet](https://the-sz.com/products/usbid/index.php?v=0x346D) we got information that vendor of this device is - **Shenzhen SanDiYiXin Electronic Co.,LTD**
 0x346D, 0x5678: Shenzhen SanDiYiXin Electronic Co.,LTD Disk 2.0
 
 <img width="1192" height="940" alt="image" src="https://github.com/user-attachments/assets/636d110a-ac6f-4404-be25-d3fbb0796a3f" />
