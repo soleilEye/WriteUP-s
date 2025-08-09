@@ -20,25 +20,25 @@ FTK Imager for Image.ad1
 3. How many USB storage devices were attached to this host in total?
 > *3*
 4. What is the attach timestamp for the USB in UTC?
-> **
+> *2024-02-23 11:37:50*
 5. What is the detach timestamp for the USB in UTC?
-> **
+> *2024-02-23 11:39:12*
 6. Which folder did he copy to the USB?
-> **
+> *Documents*
 7. There were subfolders in the folder that was copied. What is the name of the first subfolder? (Alphabetically)
-> **
+> *Business Proposals*
 8. Eddie opens some files after copying them to the USB. What is the name of the file with the .xlsx extension Eddie opens?
-> **
+> *Business Leads.xlsx*
 9. Eddie opens some files after copying them to the USB. What is the name of the file with the .docx extension Eddie opens?
-> **
+> *Proposal Brnrdr ltd.docx*
 10. What was the volume name of the USB?
-> **
+> *RVT-9J*
 11. What was the drive letter of the USB?
-> **
+> *E*
 12. I hope we can find some more evidence to tie this all together. What is Eddie's last name?
->
+> *Homer*
 13. There was an unbranded USB in the USB list, can you identify it's manufacturer’s name?
-> **
+> *Shenzhen SanDiYiXin Electronic Co.,LTD*
 ***
 # My Thoughts and Investigation Process
 ### Task1. Find out the time zone of victim PC. (UTC+xx:xx)
@@ -77,20 +77,66 @@ Plus, I think if we compare the VID and PID of each device, we can figure out wh
 
 ### Task4. What is the attach timestamp for the USB in UTC?
 
+To answer this question, you need to refer to the registry SYSTEM. Full path is - `SYSTEM\ControlSet\Enum\USBSTOR\<Device Name>\<Device ID>\Properties\{83da6326-97a6-4088-9453-a1923f573b29}\0066`
+
+<img width="2520" height="773" alt="image" src="https://github.com/user-attachments/assets/f7460fa5-1f0e-43f1-8203-06cedbc8a961" />
+
+The answer is - `2024-02-23 11:37:50`.
+
 ### Task5. What is the detach timestamp for the USB in UTC?
+
+To answer this question, you need to refer to the registry SYSTEM. Full path is - `SYSTEM\ControlSet\Enum\USBSTOR\<Device Name>\<Device ID>\Properties\{83da6326-97a6-4088-9453-a1923f573b29}\0067`.
+
+<img width="1285" height="798" alt="image" src="https://github.com/user-attachments/assets/5aab5ce7-d918-44a0-8281-22d08d16acfb" />
+
+The answer is - `2024-02-23 11:39:12`
 
 ### Task6. Which folder did he copy to the USB?
 
+Here I didn't quite get it, so I asked for a hint on the Discord server. And one guy told me to look at this path `AppData\Roaming\Microsoft\Windows\Recent`. It contained .lnk files. I found articles that .lnk files can contain this information, since they are created at the time of transmission, but when I mounted the device to perform the search, I got zero results. Perhaps I did something wrong.
+
+<img width="1752" height="1176" alt="image" src="https://github.com/user-attachments/assets/99a68e9a-b89d-4844-8dfb-9cab7eb3a659" />
+
 ### Task7. There were subfolders in the folder that was copied. What is the name of the first subfolder? (Alphabetically)
+
+<img width="1560" height="1083" alt="image" src="https://github.com/user-attachments/assets/096117a8-6872-43a0-a290-d2c6dd8da76e" />
 
 ### Task8. Eddie opens some files after copying them to the USB. What is the name of the file with the .xlsx extension Eddie opens?
 
+From this .lnk files we got answer for question - **Business Leads.xlsx**
+
 ### Task9. Eddie opens some files after copying them to the USB. What is the name of the file with the .docx extension Eddie opens?
+
+From this .lnk files we got answer for question - **Proposal Brnrdr ltd.docx**
 
 ### Task10. What was the volume name of the USB?
 
+**RVT-9J**
+
 ### Task11. What was the drive letter of the USB?
+
+**E**
 
 ### Task12. I hope we can find some more evidence to tie this all together. What is Eddie's last name?
 
+We got this information from thumbcache. 
+Thumbcache — это системный кэш миниатюр (эскизов) изображений в операционной системе Windows, предназначенный для ускорения отображения превью изображений и других файлов в Проводнике. Windows создает и хранит уменьшенные копии изображений, чтобы при повторном просмотре папок не пересчитывать эти миниатюры заново, что значительно повышает скорость и удобство работы.
+Full path - `C:\Users\<Имя_пользователя>\AppData\Local\Microsoft\Windows\Explorer`
+Для просмотра будем использовать ПО - thumbcache_viewer
+
+<img width="462" height="463" alt="image" src="https://github.com/user-attachments/assets/5c9af8b6-1695-4ed5-b240-fc83e2fa3f1b" />
+
+The answer is - **Homer**. 
+
 ### Task13. There was an unbranded USB in the USB list, can you identify it's manufacturer’s name?
+
+From Registry we got VID and PID this unbranded USB: VID_346D&PID_5678
+
+<img width="1572" height="102" alt="image" src="https://github.com/user-attachments/assets/5bb87d30-4ab6-4fc0-b4f3-2ad8f6679f49" />
+
+<img width="1582" height="111" alt="image" src="https://github.com/user-attachments/assets/cdeed504-b9c1-43de-bcd6-d667b1ee6e35" />
+
+From [Internet](https://the-sz.com/products/usbid/index.php?v=0x346D) we got information that vendor of this device is - Shenzhen SanDiYiXin Electronic Co.,LTD
+0x346D, 0x5678: Shenzhen SanDiYiXin Electronic Co.,LTD Disk 2.0
+
+<img width="1192" height="940" alt="image" src="https://github.com/user-attachments/assets/636d110a-ac6f-4404-be25-d3fbb0796a3f" />
