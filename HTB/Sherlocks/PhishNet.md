@@ -23,7 +23,7 @@ We have:
 Questions and Answers
 
 1.  What is the originating IP address of the sender?
->   
+>   45.67.89[.]10
 2.  Which mail server relayed this email before reaching the victim?
 > 
 3.  What is the sender's email address?
@@ -52,6 +52,20 @@ For answer this question we need explore headers of our mail. Let's open email a
 <img width="1226" height="953" alt="06-18-26-212437" src="https://github.com/user-attachments/assets/dc7675fe-092d-40cd-abc5-9be394cd4294" />
 
 <img width="1066" height="523" alt="06-18-26-212459" src="https://github.com/user-attachments/assets/90393c27-e5bf-4b03-a817-a5613233b191" />
+
+So... The Originating-IP is 45.67.89[.]10, because the X-Originating-IP and X-Sender-IP have this value
+
+> The The X-Sender-IP (or X-Originating-IP) is a non-standard email header field that records the public IP address of the device used to submit an email 
+
+<img width="1834" height="1196" alt="image" src="https://github.com/user-attachments/assets/f89cbedf-7d4d-4c27-8110-3f15fbd566aa" />
+
+The answer for 1 question - 45.67.89[.]10
+
+## Q2. Which mail server relayed this email before reaching the victim? (Какой почтовый сервер переслал это электронное письмо до того, как оно достигло жертвы?)
+
+We need check "Received" headers. They give as information about mail servers which relayed email. For undestand this information we need start from bottom and go up.
+
+
 
 
 
