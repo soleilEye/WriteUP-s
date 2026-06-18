@@ -49,7 +49,11 @@ Questions and Answers
 ## Q1. What is the originating IP address of the sender? (Какой IP-адрес отправителя?)
 
 For answer this question we need explore headers of our mail. Let's open email and navigate to headers. 
-<img width="1655" height="926" alt="Pasted image 20250728194358" src="https://github.com/user-attachments/assets/c76b442c-40e2-4d04-b2d8-678d9e2ea0b6" />
+<img width="1226" height="953" alt="06-18-26-212437" src="https://github.com/user-attachments/assets/dc7675fe-092d-40cd-abc5-9be394cd4294" />
+
+<img width="1066" height="523" alt="06-18-26-212459" src="https://github.com/user-attachments/assets/90393c27-e5bf-4b03-a817-a5613233b191" />
+
+
 
 
 
